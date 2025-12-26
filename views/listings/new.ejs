@@ -1,0 +1,90 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <body>
+        <div class="row">
+            <div class="col-8 offset-2">
+                <br>
+                <h2>Create New Listing</h2>
+                <br>
+                <form class="mb-3 needs-validation" method="POST" action="/listing" novalidate enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title :</label>
+                        <input type="text" placeholder="Enter title" id="title" required class="form-control"
+                            name="listing[title]" />
+                        <div class="invalid-feedback">
+                            Enter Valid Name
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">Description :</label>
+
+                        <textarea placeholder="Enter a description" id="desc" class="form-control"
+                            name="listing[description]" cols="32" rows="10" required></textarea>
+                        <div class="invalid-feedback">
+                            Enter Short Description
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload Image :</label>
+                        <input type="file" id="image" class="form-control"
+                            name="listing[image]" required/>
+                        <p class="mt-1" style="margin-left: 1rem; color: rgb(239, 89, 89)">Image size less-then 1MB</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category :</label>
+                        <select class="form-control" name="listing[category]" required>
+                            <option>Select Any Category</option>
+                            <option value="Mountains City">Mountains City</option>
+                            <option value="Farms">Farms</option>
+                            <option value="Arctic">Arctic</option>
+                            <option value="Camping">Camping</option>
+                            <option value="City">City</option>
+                            <option value="Beach">Beach</option>
+                            <option value="Castles">Castles</option>
+                            <option value="Building">Building</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="price" class="form-label">Price :</label>
+                            <input type="number" placeholder="Enter Price" id="price" class="form-control"
+                                name="listing[price]" required />
+                            <div class="invalid-feedback">
+                                Enter Valid Price
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-md-8">
+                            <label for="location" class="form-label">Location :</label>
+                            <input type="text" placeholder="Enter Location" id="location" class="form-control"
+                                name="listing[location]" required />
+                            <div class="invalid-feedback">
+                                Enter Valid Location
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="country" class="form-label">Country :</label>
+                        <input type="text" placeholder="Enter Country" id="country" class="form-control"
+                            name="listing[country]" value="India" required />
+                        <div class="invalid-feedback">
+                            Enter Valid Country
+                        </div>
+                    </div>
+                    <br><br>
+                    <button class="btn btn-dark add-btn">Submit</button>
+                </form>
+                <ul>
+                    <li>We requested you to upload image with less-then 1mb</li>
+                    <li>Less size image will take less time to save</li>
+                    <li>In case upload large size image some time it take long time and some case it show request time up</li>
+                </ul>
+            </div>
+        </div>
+    </body>

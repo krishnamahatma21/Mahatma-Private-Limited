@@ -1,0 +1,93 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <body>
+        <div id="filters">
+            <a href="/listing" class="filter">
+                <div>
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <p>Trending</p>
+            </a>
+            <a href="/listing?category=Rooms" class="filter">
+                <div>
+                    <i class="fa-solid fa-bed"></i>
+                </div>
+                <p>Rooms</p>
+            </a>
+            <a href="/listing?category=Mountains City" class="filter">
+                <div>
+                    <i class="fa-solid fa-mountain-city"></i>
+                </div>
+                <p>Mountain city</p>
+            </a>
+            <a href="/listing?category=Building" class="filter">
+                <div>
+                    <i class="fa-solid fa-building"></i>
+                </div>
+                <p>Building</p>
+            </a>
+            <a href="/listing?category=Castles" class="filter">
+                <div>
+                    <i class="fa-brands fa-fort-awesome"></i>
+                </div>
+                <p>Castles</p>
+            </a>
+            <a href="/listing?category=Beach" class="filter">
+                <div>
+                    <i class="fa-solid fa-person-swimming"></i>
+                </div>
+                <p>Beach</p>
+            </a>
+            <a href="/listing?category=Camping" class="filter">
+                <div>
+                    <i class="fa-solid fa-campground"></i>
+                </div>
+                <p>Camping</p>
+            </a>
+            <a href="/listing?category=Farms" class="filter">
+                <div>
+                    <i class="fa-solid fa-cow"></i>
+                </div>
+                <p>Farms</p>
+            </a>
+            <a href="/listing?category=Arctic" class="filter">
+                <div>
+                    <i class="fa-solid fa-snowflake"></i>
+                </div>
+                <p>Arctic</p>
+            </a>
+
+            <div class="taxs-toggle ms-auto">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                    <label class="form-check-label" for="switchCheckDefault">Display total before taxes</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% for ( data of allData ) { %>
+                <a href="/listing/<%= data._id %>" class="listing-link">
+                    <div class="card listing-card">
+                        <img src="<%= data.image.url %>" class="card-img-top" alt="Listing-image"
+                            style="height: 20rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>
+                                    <%= data.title %>
+                                </b>
+                                <br>
+                                &#8377; <%= data.price.toLocaleString("en-in") %> / Night
+                                    <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+    </body>
+
+    <script>
+        
+    </script>
